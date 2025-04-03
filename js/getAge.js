@@ -74,28 +74,21 @@ getAge.addEventListener('click', (event) =>{
         dayInput.classList.remove('border-red-400');
         monthInput.classList.remove('border-red-400');
         yearInput.classList.remove('border-red-400');
-
-        let monthsCalc;
-        let yearsCalc;
-        let daysCalc;
-
-        if (currentMonth < month){
-            yearsCalc = (currentYear - year) - 1
-        } else {
-            yearsCalc = currentYear - year
+        let monthsCalc = currentMonth - (month - 1);
+        let yearsCalc = currentYear - year;
+        let daysCalc = currentDay - day;
+          
+        if (daysCalc < 0) {
+          const diasMesAnterior = new Date(currentYear, currentMonth, 0).getDate();
+          daysCalc += diasMesAnterior;
+          monthsCalc--;
         }
-
-        if (currentDay < day){
-            const diasMesAnterior = new Date(currentYear, currentMonth, 0).getDate();
-            daysCalc = (diasMesAnterior - (day - currentDay)) - 1;
-            monthsCalc = (currentMonth + 1) - 1
-        } else {
-            daysCalc = currentDay - day
-            monthsCalc = (currentMonth + 1) 
+        if (monthsCalc < 0) {
+          monthsCalc += 12;
+          yearsCalc--;
         }
-
-        yearsValue.innerHTML = yearsCalc
-        monthsValue.innerHTML = monthsCalc
-        daysValue.innerHTML = daysCalc
+        yearsValue.innerHTML = yearsCalc;
+        monthsValue.innerHTML = monthsCalc;
+        daysValue.innerHTML = daysCalc;
     }  
 });
