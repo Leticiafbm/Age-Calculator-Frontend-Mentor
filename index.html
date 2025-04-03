@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <title>Frontend Mentor | Age calculator app</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --font-poppins: 'Poppins', sans-serif;
+
+        --color-website: #f0f0f0;
+        --color-light: #8e8e8e;
+        --color-lighter: #c1c1c1;
+        --color-medium: #707070;
+        --color-dark: #191919;
+        --color-purple: #864dfe;
+        --color-error: #f66076;
+
+        --shadow-custom: 10px 10px 28px #dcdcdc;
+      }
+    </style>
+  </head>
+  <body class="bg-website font-poppins flex justify-center items-center h-screen">
+    <main class="bg-white py-10 px-7 rounded-2xl rounded-br-[80px] mx-auto w-[90%] max-w-xl shadow-custom lg:py-11 lg:px-12 lg:max-w-2xl lg:rounded-br-[130px]">
+      <section class="flex max-w-full gap-4 lg:gap-5">
+          <div class="max-w-1/3 flex flex-col gap-2 lg:max-w-[23%]">
+              <label for="dayInput" class="font-bold text-medium tracking-widest text-xs">DAY</label>
+              <input type="number" id="dayInput" placeholder="DD" inputmode="numeric" class="w-full border border-lighter rounded-lg px-4 py-2.5 text-xl text-dark font-bold placeholder-light placeholder:font-bold focus:outline-none focus:border-purple  lg:py-3 lg:text-2xl">
+              <span  class="text-error italic text-xs hidden">This field is required</span>
+              <span id="invalidDay" class="text-error italic text-xs hidden">Must be a valid day</span>
+          </div>
+
+          <div class="max-w-1/3 flex flex-col gap-2 lg:max-w-[23%]">
+              <label for="monthInput" class="font-bold text-medium tracking-widest text-xs">MONTH</label>
+              <input type="number" id="monthInput" placeholder="MM" inputmode="numeric" class="w-full border border-lighter rounded-lg px-4 py-2.5 text-xl text-dark font-bold placeholder-light placeholder:font-bold focus:outline-none focus:border-purple  lg:py-3 lg:text-2xl">
+              <span  class="text-error italic text-xs hidden">This field is required</span>
+              <span id="invalidMonth" class="text-error italic text-xs hidden">Must be a valid month</span>
+          </div>
+
+          <div class="max-w-1/3 flex flex-col gap-2 lg:max-w-[23%]">
+              <label for="yearInput" class="font-bold text-medium tracking-widest text-xs">YEAR</label>
+              <input type="number" id="yearInput" placeholder="YYYY" inputmode="numeric" class="w-full border border-lighter rounded-lg px-4 py-2.5 text-xl text-dark font-bold placeholder-light placeholder:font-bold focus:outline-none focus:border-purple  lg:py-3 lg:text-2xl">
+              <span  class="text-error italic text-xs hidden">This field is required</span>
+              <span id="invalidYear" class="text-error italic text-xs hidden">Must be in the past</span>
+          </div>
+      </section>
+
+      <article class="border-t border-lighter mt-14 relative">
+          <div class="flex justify-center">
+              <button class="bg-purple rounded-full py-4.5 px-4.5 absolute left-1/2 -translate-x-1/2 -top-8 hover:bg-dark cursor-pointer duration-300 flex justify-center items-center active:opacity-80 md:left-[88.9%] md:w-19.5 md:h-19.5 md:-translate-x-3.5 md:-top-10" id="getAgeButton">
+                  <img src="./assets/images/icon-arrow.svg" alt="arrow icon" class="w-7 lg:w-9">
+              </button>
+          </div>
+
+          <section class="flex flex-col text-base/15  mt-14">
+              <h1 class="text-dark text-[52px] font-extrabold italic lg:text-7xl"><strong class="text-purple mr-2" id="yearsValue">- -</strong>years</h1>
+              <h2 class="text-dark text-[52px] font-extrabold italic lg:text-7xl"><strong class="text-purple mr-2" id="monthsValue">- -</strong>months</h2>
+              <h3 class="text-dark text-[52px] font-extrabold italic lg:text-7xl"><strong class="text-purple mr-2" id="daysValue">- -</strong>days</h3>
+          </section>
+      </article>
+  </main>
+  <script src="./js/getAge.js" type="module"></script>
+  </body>
+</html>
